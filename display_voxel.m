@@ -46,6 +46,18 @@ phandles = contourslice(D,0,0,[1,100,200,300, 400, 500, 600],2);
 view(3); axis tight
 set(phandles,'LineWidth',2)
 
+%% display isosurface
+
+Ds = smooth3(D);
+hiso = patch(isosurface(Ds,5),...
+    'FaceColor',[1,.75,.65],...
+    'EdgeColor','none');
+
+hcap = patch(isocaps(D,5),...
+    'FaceColor','interp',...
+    'EdgeColor','none');
+colormap(map)
+
 %% show all of x/y axis but only when z = 1 or 200
 contourslice(D,[],[],[1,200], 2)
 axis ij
